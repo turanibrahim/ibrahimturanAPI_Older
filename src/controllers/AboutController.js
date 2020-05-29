@@ -1,44 +1,103 @@
+const Joi = require('@hapi/joi');
 const models = require('../models');
-const About = models.about;
+const AboutSections = models.aboutSections;
 
-exports.about = function(req, res) {
-  const data = About.findAll();
-  res.send(data);
+exports.aboutSections = function(req, res) {
+  const data = req.params
+  AboutSections.findAll({
+    where: {
+      lang: data.lang
+    },
+    order: [
+      ['sequence', 'ASC']
+    ]
+  }).then(data => {
+    res.send(data);
+  });
 };
 
-exports.createAbout = function(req, res) {
-
-  const Joi = require('@hapi/joi');
+exports.createAboutSection = function(req, res) {
 
   const data = req.body;
 
   const schema = Joi.object({
-    aboutMe: Joi.string().required(),
-    language: Joi.string().required(),
+    title: Joi.string().allow(null),
+    description: Joi.string().allow(null),
+    icons: Joi.array().allow(null),
+    lang: Joi.string().required(),
+    sequence: Joi.number().allow(null),
   });
 
   const { error }= schema.validate(data);
 
   if (error) {
-    // send a 422 error response if validation fails
     res.status(422).json({
         status: 'error',
         message: 'Invalid request data',
     });
   } else {
-    About.create({ 
-      aboutMe: data.aboutMe,
-      language: data.language,
+    AboutSections.create({ 
+      title: data.title,
+      description: data.description,
+      icons: data.icons,
+      lang: data.lang,
+      sequence: data.sequence
     }).then(data => {
       res.status(200).json(data);
     });
   }
 };
 
-exports.updateAbout = function(req, res) {
-  res.send('NOT IMPLEMENTED: Author detail');
+exports.updateAboutSection = function(req, res) {
+
+  const data = req.body;
+
+  const schema = Joi.object({
+    id: Joi.number().required(),
+    title: Joi.string().allow(null),
+    description: Joi.string().allow(null),
+    icons: Joi.array().allow(null),
+    lang: Joi.string().required(),
+    sequence: Joi.number().allow(null),
+  });
+
+  const { error }= schema.validate(data);
+
+  if (error) {
+    res.status(422).json({
+        status: 'error',
+        message: 'Invalid request data',
+    });
+  } else {
+    AboutSections.update({ 
+      title: data.title,
+      description: data.description,
+      icons: data.icons,
+      title: data.title,
+      lang: data.lang,
+      sequence: data.sequence,
+      updatedAt: Date.now()
+    },{
+      where: {
+        id: data.id
+      }
+    }).then((result) => {
+      res.status(200).json(result);
+    }).catch(error => {
+      res.status(400).json(error);
+    });
+  }
 };
 
-exports.deleteAbout = function(req, res) {
-  res.send('NOT IMPLEMENTED: Author create GET');
-};
+exports.deleteAboutSection = function(req, res) {
+  const data = req.params 
+  AboutSections.destroy({
+    where: {
+      id: data.id
+    }
+  }).then((result) => {
+    res.status(200).json(result);
+  }).catch(error => {
+    res.status(400).json(error);
+  });
+}
