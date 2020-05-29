@@ -21,7 +21,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.about = require("./about.js")(sequelize, Sequelize);
 db.aboutSections = require("./aboutSections.js")(sequelize, Sequelize);
 
 module.exports = db;
