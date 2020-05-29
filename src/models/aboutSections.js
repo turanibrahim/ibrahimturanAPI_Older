@@ -21,6 +21,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     icons: {
       type: Sequelize.JSON
+    },
+    sequence: {
+      type: Sequelize.JSON
     }
   }, {
     sequelize,
