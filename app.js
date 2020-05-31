@@ -7,7 +7,10 @@ const db = require("./src/models");
 //DOTENV
 require('dotenv').config()
 
+//Import Routes
 const aboutRouter = require('./routes/about');
+const experienceRouter = require('./routes/experience');
+const contactRouter = require('./routes/contact');
 
 var app = express();
 
@@ -39,5 +42,7 @@ db.sequelize.sync()
 
 //ROUTES
 app.use('/api/about', aboutRouter);
+app.use('/api/experience', experienceRouter);
+app.use('/api/contact', contactRouter);
 
 module.exports = app;
