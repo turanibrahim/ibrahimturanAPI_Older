@@ -22,5 +22,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.aboutSections = require("./aboutSections.js")(sequelize, Sequelize);
+db.experiences = require("./experiences.js")(sequelize, Sequelize);
+db.socialMedias = require("./socialMedias.js")(sequelize, Sequelize);
+db.contactForms = require("./contactForms.js")(sequelize, Sequelize);
 
 module.exports = db;
