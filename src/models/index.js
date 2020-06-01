@@ -9,7 +9,7 @@ const prosess = {
   port: process.env.PORT,
   url: process.env.DATABASE_URL,
 }
-console.log({})
+console.log({prosess})
 const sequelize = new Sequelize({
   database: process.env.DATABASE_NAME,
   username: process.env.DATABASE_USER,
