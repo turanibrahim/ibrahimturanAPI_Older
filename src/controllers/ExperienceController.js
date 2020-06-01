@@ -18,7 +18,8 @@ exports.experiences = function(req, res) {
 
 exports.createExperience = function(req, res) {
 
-  const data = req.body;
+  return res.status(405)
+  /* const data = req.body;
 
   const schema = Joi.object({
     title: Joi.string().required(),
@@ -47,12 +48,13 @@ exports.createExperience = function(req, res) {
     }).then(data => {
       res.status(200).json(data);
     });
-  }
+  } */
 };
 
 exports.updateExperience = function(req, res) {
 
-  const data = req.body;
+  return res.status(405)
+  /* const data = req.body;
 
   const schema = Joi.object({
     id: Joi.number().required(),
@@ -89,11 +91,13 @@ exports.updateExperience = function(req, res) {
     }).catch(error => {
       res.status(400).json(error);
     });
-  }
+  } */
 };
 
 exports.deleteExperience = function(req, res) {
-  const data = req.params 
+
+  return res.status(405)
+  /* const data = req.params 
   Experiences.destroy({
     where: {
       id: data.id
@@ -102,5 +106,5 @@ exports.deleteExperience = function(req, res) {
     res.status(200).json(result);
   }).catch(error => {
     res.status(400).json(error);
-  });
+  }); */
 }
