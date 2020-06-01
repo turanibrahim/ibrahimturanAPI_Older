@@ -18,7 +18,7 @@ exports.experiences = function(req, res) {
 
 exports.createExperience = function(req, res) {
 
-  return res.status(405)
+  res.status(405).send();
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -53,7 +53,7 @@ exports.createExperience = function(req, res) {
 
 exports.updateExperience = function(req, res) {
 
-  return res.status(405)
+  res.status(405).send();
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -96,7 +96,7 @@ exports.updateExperience = function(req, res) {
 
 exports.deleteExperience = function(req, res) {
 
-  return res.status(405)
+  res.status(405).send();
   /* const data = req.params 
   Experiences.destroy({
     where: {

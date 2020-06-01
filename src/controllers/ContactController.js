@@ -16,7 +16,7 @@ exports.socialMedias = function(req, res) {
 
 exports.createSocialMedia = function(req, res) {
 
-  return res.status(405);
+  res.status(405).send();
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -47,7 +47,7 @@ exports.createSocialMedia = function(req, res) {
 
 exports.updateSocialMedia = function(req, res) {
 
-  return res.status(405);
+  res.status(405).send();
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -86,7 +86,7 @@ exports.updateSocialMedia = function(req, res) {
 
 exports.deleteSocialMedia = function(req, res) {
 
-  return res.status(405);
+  res.status(405).send();
   /* const data = req.params 
   Contact.destroy({
     where: {
@@ -112,7 +112,7 @@ exports.contactForms = function(req, res) {
 
 exports.createContactForm = function(req, res) {
 
-  return res.status(405)
+  res.status(405).send();
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -142,7 +142,8 @@ exports.createContactForm = function(req, res) {
 };
 
 exports.deleteContactForm = function(req, res) {
-  return res.status(405)
+  res.status(405).send();
+
   /* const data = req.params 
   ContactForm.destroy({
     where: {

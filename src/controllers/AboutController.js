@@ -18,7 +18,8 @@ exports.aboutSections = function(req, res) {
 
 exports.createAboutSection = function(req, res) {
 
-  return res.status(405);
+  res.status(405).send();
+  
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -51,7 +52,8 @@ exports.createAboutSection = function(req, res) {
 
 exports.updateAboutSection = function(req, res) {
 
-  return res.status(405);
+  res.status(405).send();
+
   /* const data = req.body;
 
   const schema = Joi.object({
@@ -88,10 +90,13 @@ exports.updateAboutSection = function(req, res) {
     }).catch(error => {
       res.status(400).json(error);
     });
-  }
+  } */
 };
 
 exports.deleteAboutSection = function(req, res) {
+
+  res.status(405).send();
+  /*
   const data = req.params 
   AboutSections.destroy({
     where: {
