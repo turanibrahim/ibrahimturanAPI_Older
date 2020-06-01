@@ -11,11 +11,7 @@ const prosess = {
 }
 console.log({prosess})
 const sequelize = new Sequelize({
-  database: process.env.DATABASE_NAME,
-  username: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  host: process.env.DATABASE_HOST,
-  port: process.env.PORT,
+  durl: process.env.DATABASE_URL,
   dialect: "postgres",
   dialectOptions: {
     ssl: {
