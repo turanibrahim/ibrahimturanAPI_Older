@@ -45,4 +45,13 @@ app.use('/api/about', aboutRouter);
 app.use('/api/experience', experienceRouter);
 app.use('/api/contact', contactRouter);
 
+app.get('/:lang/*', (req, res) => {
+
+  if(req.params.lang !== 'en'){
+    const fileDirectory = path.resolve(__dirname, '.', 'public/');
+    console.log(req.params)
+    res.sendFile(`${req.params[0]}/index.html`, {root: fileDirectory})
+  }
+})
+
 module.exports = app;
