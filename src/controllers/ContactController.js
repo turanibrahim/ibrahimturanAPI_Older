@@ -16,8 +16,7 @@ exports.socialMedias = function(req, res) {
 
 exports.createSocialMedia = function(req, res) {
 
-  res.status(405).send();
-  /* const data = req.body;
+  const data = req.body;
 
   const schema = Joi.object({
     name: Joi.string().required(),
@@ -42,13 +41,12 @@ exports.createSocialMedia = function(req, res) {
     }).then(data => {
       res.status(200).json(data);
     });
-  } */
+  }
 };
 
 exports.updateSocialMedia = function(req, res) {
 
-  res.status(405).send();
-  /* const data = req.body;
+  const data = req.body;
 
   const schema = Joi.object({
     id: Joi.number().required(),
@@ -81,13 +79,12 @@ exports.updateSocialMedia = function(req, res) {
     }).catch(error => {
       res.status(400).json(error);
     });
-  } */
+  }
 };
 
 exports.deleteSocialMedia = function(req, res) {
 
-  res.status(405).send();
-  /* const data = req.params 
+  const data = req.params 
   Contact.destroy({
     where: {
       id: data.id
@@ -107,13 +104,12 @@ exports.contactForms = function(req, res) {
     ]
   }).then(data => {
     res.send(data);
-  }); */
+  });
 };
 
 exports.createContactForm = function(req, res) {
 
-  res.status(405).send();
-  /* const data = req.body;
+  const data = req.body;
 
   const schema = Joi.object({
     name: Joi.string().required(),
@@ -138,13 +134,12 @@ exports.createContactForm = function(req, res) {
     }).then(data => {
       res.status(200).json(data);
     });
-  } */
+  }
 };
 
 exports.deleteContactForm = function(req, res) {
-  res.status(405).send();
 
-  /* const data = req.params 
+  const data = req.params 
   ContactForm.destroy({
     where: {
       id: data.id
@@ -153,5 +148,5 @@ exports.deleteContactForm = function(req, res) {
     res.status(200).json(result);
   }).catch(error => {
     res.status(400).json(error);
-  }); */
+  });
 }
