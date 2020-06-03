@@ -25,6 +25,9 @@ module.exports = (sequelize, Sequelize) => {
     terminationDate: {
       type: Sequelize.DATE
     },
+    logo: {
+      type: Sequelize.STRING
+    },
     lang: {
       type: Sequelize.STRING
     }
